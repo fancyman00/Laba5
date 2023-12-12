@@ -42,11 +42,11 @@ int main()
 	do
 	{
 		mainChoice = menu([]() {
-			cout << "Меню" << endl;
-			cout << "1. Вычислить сумму отрицательных элементов массива" << endl;
-			cout << "2. Вычислить произведение элементов массива, расположенных максимальным и минимальными элементами массива" << endl;
-			cout << "3. Упорядочить по возрастанию элементы методом простого выбора" << endl;
-			cout << "4. Завершить работу" << endl; 
+			cout << "РњРµРЅСЋ" << endl;
+			cout << "1. Р’С‹С‡РёСЃР»РёС‚СЊ СЃСѓРјРјСѓ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°" << endl;
+			cout << "2. Р’С‹С‡РёСЃР»РёС‚СЊ РїСЂРѕРёР·РІРµРґРµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°, СЂР°СЃРїРѕР»РѕР¶РµРЅРЅС‹С… РјР°РєСЃРёРјР°Р»СЊРЅС‹Рј Рё РјРёРЅРёРјР°Р»СЊРЅС‹РјРё СЌР»РµРјРµРЅС‚Р°РјРё РјР°СЃСЃРёРІР°" << endl;
+			cout << "3. РЈРїРѕСЂСЏРґРѕС‡РёС‚СЊ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ СЌР»РµРјРµРЅС‚С‹ РјРµС‚РѕРґРѕРј РїСЂРѕСЃС‚РѕРіРѕ РІС‹Р±РѕСЂР°" << endl;
+			cout << "4. Р—Р°РІРµСЂС€РёС‚СЊ СЂР°Р±РѕС‚Сѓ" << endl; 
 		});
 		if (mainChoice != 4)
 		{
@@ -54,10 +54,10 @@ int main()
 			do
 			{
 				choice = menu([]() {
-					cout << "1. Ввод чисел с клавиатуры" << endl;
-					cout << "2. Ввод чисел из файла" << endl;
-					cout << "3. Случайный набор чисел" << endl;
-					cout << "4. Выйти в главное меню" << endl;
+					cout << "1. Р’РІРѕРґ С‡РёСЃРµР» СЃ РєР»Р°РІРёР°С‚СѓСЂС‹" << endl;
+					cout << "2. Р’РІРѕРґ С‡РёСЃРµР» РёР· С„Р°Р№Р»Р°" << endl;
+					cout << "3. РЎР»СѓС‡Р°Р№РЅС‹Р№ РЅР°Р±РѕСЂ С‡РёСЃРµР»" << endl;
+					cout << "4. Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ" << endl;
 				});
 				if (choice != 4)
 				{
@@ -77,18 +77,18 @@ int main()
 					case 2:
 					{
 						fill(arr, size, file);
-						print(arr, size, "Элементы массива: ");
+						print(arr, size, "Р­Р»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°: ");
 						break;
 					}
 					default:
 					{
 						int a, b;
-						cout << "Введите допустимый диапазон чисел (от A до B): ";
+						cout << "Р’РІРµРґРёС‚Рµ РґРѕРїСѓСЃС‚РёРјС‹Р№ РґРёР°РїР°Р·РѕРЅ С‡РёСЃРµР» (РѕС‚ A РґРѕ B): ";
 						read_and_check(a, cin, [](int x) {return true; }, "-> ");
 						read_and_check(b, cin, [](int x) {return true; }, "");
 						cin.ignore(cin.rdbuf()->in_avail());
 						fill(arr, arr + size, a, b);
-						print(arr, size, "Элементы массива : ");
+						print(arr, size, "Р­Р»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° : ");
 					}
 					}
 
@@ -99,10 +99,10 @@ int main()
 						int product;
 						if (task1(arr, arr + size, product, [](int x) {return x < 0; }))
 						{
-							cout << "Сумма отрицательных элементов: " << product << endl;
+							cout << "РЎСѓРјРјР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ: " << product << endl;
 						}
 						else
-							cout << "Нет отрицательных элементов! " << endl;
+							cout << "РќРµС‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ! " << endl;
 						break;
 					}
 					case 2:
@@ -110,15 +110,15 @@ int main()
 						int* min_index = find_min_index(arr, arr + size);
 						int* max_index = find_max_index(arr, arr + size);
 						if (min_index == max_index || max_index - min_index == 1 || min_index - max_index == 1)
-							cout << "Пустой диапазон!" << endl;
+							cout << "РџСѓСЃС‚РѕР№ РґРёР°РїР°Р·РѕРЅ!" << endl;
 						else
-							cout << "Произведение заданных элементов: " << task2(min_index, max_index) << endl;
+							cout << "РџСЂРѕРёР·РІРµРґРµРЅРёРµ Р·Р°РґР°РЅРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ: " << task2(min_index, max_index) << endl;
 						break;
 					}
 					default:
 					{
 						task3(arr, size);
-						print(arr, size, "Отсортированные по данному правилу элементы массива: ");
+						print(arr, size, "РћС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Рµ РїРѕ РґР°РЅРЅРѕРјСѓ РїСЂР°РІРёР»Сѓ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°: ");
 					}
 					}
 					free_memory(arr);
@@ -220,21 +220,21 @@ bool check_file(ifstream& file)
 	if (!file)
 	{
 		result = -1;
-		cout << "Файл не найден!" << endl;
+		cout << "Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ!" << endl;
 	}
 	else if (file.peek() == EOF) //==-1
 	{
 		result = 0;
-		cout << "Файл пустой!" << endl;
+		cout << "Р¤Р°Р№Р» РїСѓСЃС‚РѕР№!" << endl;
 	}
 	return result == 1;
 }
 
 void ending(int n)
 {
-	cout << "Введите " << n << " элемент";
+	cout << "Р’РІРµРґРёС‚Рµ " << n << " СЌР»РµРјРµРЅС‚";
 	if (n < 21 && n>10)
-		cout << "ов: ";
+		cout << "РѕРІ: ";
 	else
 	{
 		switch (n % 10)
@@ -245,10 +245,10 @@ void ending(int n)
 		case 2:
 		case 3:
 		case 4:
-			cout << "а: ";
+			cout << "Р°: ";
 			break;
 		default:
-			cout << "ов: ";
+			cout << "РѕРІ: ";
 			break;
 
 		}
@@ -287,7 +287,7 @@ void preamb(short choice, ifstream& file, int& size)
 	{
 	case 1:
 	{
-		cout << "Введите количество элементов: ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ: ";
 		read_and_check(size, cin, [](int x) {return x > 0; }, "");
 		cin.ignore(cin.rdbuf()->in_avail());
 		break;
@@ -300,7 +300,7 @@ void preamb(short choice, ifstream& file, int& size)
 	}
 	default:
 	{
-		cout << "Введите количество случайных слагаемых: ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃР»СѓС‡Р°Р№РЅС‹С… СЃР»Р°РіР°РµРјС‹С…: ";
 		read_and_check(size, cin, [](int x) {return x > 0; }, "\n-> ");
 		cin.ignore(cin.rdbuf()->in_avail());
 	}
@@ -330,7 +330,7 @@ void read_and_check(T& x, istream& stream, Predicat condition, const char* messa
 	cout << message;
 	while (!(stream >> x && condition(x)))
 	{
-		cout << "Ошибка ввода!" << endl;
+		cout << "РћС€РёР±РєР° РІРІРѕРґР°!" << endl;
 		cin.clear();
 		cin.ignore(cin.rdbuf()->in_avail());
 		cout << message;
